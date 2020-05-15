@@ -1,0 +1,98 @@
+// this code use C
+
+#include <stdio.h>
+#include <stdlib.h>
+//tipe data bentukan
+typedef struct
+{
+    int tanggal;
+    int bulan;
+    int tahun;
+}tgl;//tipe tgl
+
+typedef struct
+{
+    char Alamat[20];
+    int RT;
+    int RW;
+    char Kel[30];
+    char kec[20];
+    char kota[20];
+}alamatRumah;//tipe alamatRumah
+
+typedef struct
+{
+    tgl tglExp;
+}exp;//tipe exp
+
+typedef struct
+{
+    char nik[20];
+    char nama[30];
+    char tempatLhr[20];
+    tgl tanggalLahir;
+    char jenisKelamin[10];
+    char gol[2];
+    alamatRumah almtRumah;
+    char agama[10];
+    char status[15];
+    char pekerjaan[15];
+    char kewarganegaraan[7];
+    exp expired;
+}KTP;//tipe KTP
+//deklarasi variabel
+KTP input();
+void output(KTP saya);
+
+int main()
+{
+    KTP M;
+    M = input();
+    output(M);
+    puts("");
+
+    return 0;
+}
+
+KTP input()
+{
+    KTP saya;
+    printf("\t\t\tSilahkan input data dibawah ini: \n");
+    printf("Input NIK\t\t\t: "); fflush(stdin); gets(saya.nik);
+    printf("Input Nama\t\t\t: "); fflush(stdin); gets(saya.nama);
+    printf("Input Tempat Lahir\t\t: "); fflush(stdin); gets(saya.tempatLhr);
+    printf("Input Tanggal Lahir(dd mm yyyy)\t: "); scanf("%d %d %d",&saya.tanggalLahir.tanggal,&saya.tanggalLahir.bulan,&saya.tanggalLahir.tahun);
+    printf("Input Jenis Kelamin\t\t: "); fflush(stdin); gets(saya.jenisKelamin);
+    printf("Input Golongan darah\t\t: "); fflush(stdin); gets(saya.gol);
+    printf("Input Alamat\t\t\t: "); fflush(stdin); gets(saya.almtRumah.Alamat);
+    printf("Input RT/RW\t\t\t: "); scanf("%d %d",&saya.almtRumah.RT, &saya.almtRumah.RW);
+    printf("Input Kel/Desa\t\t\t: "); fflush(stdin); gets(saya.almtRumah.Kel);
+    printf("Input Kecamatan\t\t\t: "); fflush(stdin); gets(saya.almtRumah.kec);
+    printf("Input Kab/Kota\t\t\t: "); fflush(stdin); gets(saya.almtRumah.kota);
+    printf("Input Agama\t\t\t: "); fflush(stdin); gets(saya.agama);
+    printf("Input Status Perkawinan\t\t: "); fflush(stdin); gets(saya.status);
+    printf("Input Pekerjaan\t\t\t: "); fflush(stdin); gets(saya.pekerjaan);
+    printf("Input Kewarganegaraan\t\t: "); fflush(stdin); gets(saya.kewarganegaraan);
+    printf("Input expired(dd mm yyyy)\t: "); scanf("%d %d %d",&saya.expired.tglExp.tanggal, &saya.expired.tglExp.bulan, &saya.expired.tglExp.tahun);
+    
+    return saya;
+}
+
+void output(KTP saya)
+{
+    puts("-----------------------------------------------------");
+    puts(" KARTU TANDA PENDUDUK");
+    puts("");
+    printf("NIK\t\t\t: %s\n",saya.nik);
+    printf("Tempat/Tgl Lahir\t: %s,%d-%d-%d\n",saya.tempatLhr,saya.tanggalLahir.tanggal,saya.tanggalLahir.bulan,saya.tanggalLahir.tahun);
+    printf("Jenis Kelamin\t\t: %s\n",saya.jenisKelamin);
+    printf("Alamat\t\t\t: %s\n",saya.almtRumah.Alamat);
+    printf("\t RT/RW \t\t: %d/%d\n",saya.almtRumah.RT,saya.almtRumah.RW);
+    printf("\t Kel/Desa \t: %s\n",saya.almtRumah.Kel);
+    printf("\t Kecamatan\t: %s\n",saya.almtRumah.kec);
+    printf("\t Kabupaten/Kota\t: %s\n",saya.almtRumah.kota);
+    printf("Agama\t\t\t: %s\n",saya.agama);
+    printf("Status Perkawinan\t: %s\n",saya.status);
+    printf("Pekerjaan\t\t: %s\n",saya.pekerjaan);
+    printf("Kewarganegaraan\t\t: %s\n",saya.kewarganegaraan);
+    printf("Berlaku Hingga\t\t: %d-%d-%d\n",saya.expired.tglExp.tanggal,saya.expired.tglExp.bulan,saya.expired.tglExp.tahun);
