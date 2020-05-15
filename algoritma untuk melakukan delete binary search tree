@@ -1,0 +1,19 @@
+IF TREE = NULL, then
+		Write “VAL not found in the tree”
+		ELSE IF VAL < TREE->DATA // [1] untuk potongan kesaru
+		Delete(TREE->LEFT, VAL)
+ELSE IF VAL > TREE->DATA
+		Delete(TREE->RIGHT, VAL) //[2] untuk potongan kedua
+ELSE IF TREE->LEFT AND TREE->RIGHT
+		SET TEMP = findLargestNode(TREE->LEFT)
+		SET TREE->DATA = TEMP->DATA
+		Delete(TREE->LEFT, TEMP->DATA)
+ELSE
+		SET TEMP = TREE
+		IF TREE->LEFT = NULL AND TREE ->RIGHT = NULL
+			SET TREE = NULL
+		ELSE IF TREE->LEFT != NULL
+			SET TREE = TREE->LEFT //[3] untuk potongan yang ketiga
+		ELSE
+			 SET TREE = TREE->RIGHT //[4] untuk potongan yang nomor 4
+		FREE TEM
