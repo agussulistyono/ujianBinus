@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Alamat{
+    char NamaJalan[40];
+    int NomorRumah;
+    char Kota[20];
+    char Provinsi[20];
+};
+
+struct TanggalLahir{
+    int tanggal, bulan, tahun;
+};
+
+struct Mhs{
+    int nim;
+    char nama[20];
+    struct Alamat almt;
+    struct TanggalLahir tgl;
+};
+
+int main()
+{
+    int i, c;
+    struct Mhs daftar[4];
+
+    for(i=0; i<=4; i++)
+    {
+        printf("\n\n --== Data Siswa ke-%d ==-- \n\n",i+1);
+        printf("Masukkan Nim siswa : \n");
+        scanf("%d",&daftar[i].nim);
+        printf("Masukkan Nama siswa : \n");
+        scanf("%s",&daftar[i].nama);
+        printf("--== Detail Alamat ==--: \n");
+        printf("Masukkan Nama Jalan : \n");
+        scanf("%s",&daftar[i].almt.NamaJalan);
+        printf("Masukkan Nomor Rumah : \n");
+        scanf("%d",&daftar[i].almt.NomorRumah);
+        printf("Masukkan Nama Kota : \n");
+        scanf("%s",&daftar[i].almt.Kota);
+        printf("Masukkan Nama Provinsi : \n");
+        scanf("%s",&daftar[i].almt.Provinsi);
+        printf("Masukkan Tanggal Lahir : \n");
+        scanf("%d",&daftar[i].tgl.tanggal);
+        printf("Masukkan Bulan Lahir : \n");
+        scanf("%d",&daftar[i].tgl.bulan);
+        printf("Masukkan Tahun Lahir : \n");
+        scanf("%d",&daftar[i].tgl.tahun);
+    };
+
+    for(c=0; c<=4; c++)
+    {
+        printf("=====================================================");
+        printf("\n\n Berikut ini Data Siswa yang telah anda masukkan :\n\n");
+        printf("Siswa ke-1 : \n");
+        printf("Nim : %d \n",daftar[c].nim);
+        printf("Nama : %s \n",daftar[c].nama);
+        printf("\n Detail Alamat : \n");
+        printf("Nama Jalan : %s \n",daftar[c].almt.NamaJalan);
+        printf("Nomor Rumah : %d \n",daftar[c].almt.NomorRumah);
+        printf("Nama Kota : %s \n",daftar[c].almt.Kota);
+        printf("Nama Provinsi : %s \n",daftar[c].almt.Provinsi);
+        printf("\n Tanggal Lahir (dd/mm/yyy) : %d/%d/%d \n",daftar[c].tgl.tanggal, daftar[c].tgl.bulan, daftar[c].tgl.tahun);
+    };
+
+    getchar();
+    return 0;
+}
